@@ -3,7 +3,7 @@ from routes import api_router
 from db.db_manager import drop_database
 import os
 
-from webscraper.animal.webscraping_animal import start_webscraping
+from webscraper.webscraping_amazon import start_webscraping
 
 app = FastAPI()
 

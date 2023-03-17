@@ -1,11 +1,8 @@
 from fastapi import APIRouter
-from api.api_models.animal import AnimalModel
 from fastapi import Body
 from fastapi.responses import JSONResponse
 from fastapi import Body, status
-from webscraper.animal.webscraping_animal import start_webscraping
-from db.animal_table_manage.animal_table import insert_one, find_one, drop_collection
-
+from webscraper.webscraping_amazon import start_webscraping
 
 router = APIRouter()
 
@@ -21,8 +18,8 @@ def hello_from_product():
 #     return JSONResponse(status_code=status.HTTP_201_CREATED, content=created_animal)
 
 
-@router.post("/get/{product_name}",summary="Animal name webscraping")
-async def webscrape_animal(product_name: str):
+@router.post("/get/{product_name}",summary="Amazon product name webscraping")
+async def webscrape_amazon_product(product_name: str):
     # drop_collection()
     await start_webscraping(product_name=product_name)
     return JSONResponse(status_code=status.HTTP_200_OK, content="")
