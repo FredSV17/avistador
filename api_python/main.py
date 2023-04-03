@@ -29,7 +29,7 @@ app.add_middleware(
 
 @app.get("/", response_description="Início")
 async def hello():
-    await start_webscraping("Televisão")
+    await start_webscraping("Televisão",20)
     return "Hello!"
 
 @app.on_event("shutdown")

@@ -21,5 +21,5 @@ def hello_from_product():
 @router.post("/get/{product_name}",summary="Amazon product name webscraping")
 async def webscrape_amazon_product(product_name: str):
     # drop_collection()
-    await start_webscraping(product_name=product_name)
+    await start_webscraping(product_name=product_name,number=20)
     return JSONResponse(status_code=status.HTTP_200_OK, content="")
